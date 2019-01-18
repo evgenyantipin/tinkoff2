@@ -1,6 +1,6 @@
 # Tinkoff
 
-Updated fork of https://github.com/dankimio/tinkoff
+Updated fork of https://github.com/aristofun/tinkoff2
 
 What's new: 
 1. New REST V2 API endpoint (https://securepay.tinkoff.ru/v2) support
