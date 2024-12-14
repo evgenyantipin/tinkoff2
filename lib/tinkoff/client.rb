@@ -37,5 +37,11 @@ module Tinkoff
       params = params.merge(PaymentId: payment_id)
       Tinkoff::Request.new('GetState', params).perform
     end
+
+    # Отправляет закрывающий чек в кассу
+    def self.send_closing_receipt(payment_id, params = {})
+      params = params.merge(PaymentId: payment_id)
+      Tinkoff::Request.new('SendClosingReceipt', params).perform
+    end
   end
 end
