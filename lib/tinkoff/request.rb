@@ -1,9 +1,9 @@
 module Tinkoff
   class Request
-    BASE_URL = 'https://securepay.tinkoff.ru'
+    BASE_URL = 'https://securepay.tinkoff.ru/v2/'
 
     def initialize(path, params = {})
-      @url = path.include? 'SendClosingReceipt' ? BASE_URL + '/cashbox/' + path : '/v2/' + path
+      @url = BASE_URL + path
       @params = params
     end
 
