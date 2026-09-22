@@ -52,6 +52,22 @@ Tinkoff::Client.state(response.payment_id)
 
 # Parameters: payment_id, rebill_id, options (hash, optional)
 Tinkoff::Client.charge(1, 2)
+
+# QR-код для оплаты через СБП (Система Быстрых Платежей)
+# Parameters: payment_id, data_type (optional), options (hash, optional)
+# data_type: "PAYLOAD" — возвращает строку для генерации QR-кода
+#            "IMAGE"  — возвращает base64-кодированное изображение QR-кода
+
+# Получить QR-код в виде base64-изображения
+qr_response = Tinkoff::Client.get_qr(response.payment_id, 'IMAGE')
+# qr_response.data содержит base64-кодированное изображение QR-кода
+
+# Получить payload-строку для генерации QR-кода самостоятельно
+qr_response = Tinkoff::Client.get_qr(response.payment_id, 'PAYLOAD')
+# qr_response.data содержит строку для генерации QR-кода
+
+# Без указания DataType — банк возвращает значение по умолчанию
+qr_response = Tinkoff::Client.get_qr(response.payment_id)
 ```
 
 You can view all available options in the [official documentation](https://oplata.tinkoff.ru/landing/develop/documentation).

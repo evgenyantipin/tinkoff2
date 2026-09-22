@@ -6,6 +6,9 @@ module Tinkoff
     # Attributes for Cancel method
     attr_reader :original_amount, :new_amount
 
+    # Attributes for GetQR method (СБП)
+    attr_reader :data_type, :data
+
     def initialize(response)
       @terminal_key = response['TerminalKey']
       @amount = response['Amount']
@@ -21,6 +24,10 @@ module Tinkoff
       # Attributes for Cancel method
       @original_amount = response['OriginalAmount']
       @new_amount = response['NewAmount']
+
+      # Attributes for GetQR method (СБП)
+      @data_type = response['DataType']
+      @data = response['Data']
     end
 
     def failure?
