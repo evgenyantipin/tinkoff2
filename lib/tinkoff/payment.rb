@@ -10,6 +10,8 @@ module Tinkoff
     attr_reader :data_type, :data
 
     def initialize(response)
+      response ||= {}
+
       @terminal_key = response['TerminalKey']
       @amount = response['Amount']
       @order_id = response['OrderId']

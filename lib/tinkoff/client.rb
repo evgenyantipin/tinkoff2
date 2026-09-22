@@ -50,9 +50,8 @@ module Tinkoff
     # DataType: "PAYLOAD" — возвращает строку для генерации QR-кода
     #           "IMAGE"  — возвращает base64-кодированное изображение QR-кода
     # https://www.tinkoff.ru/kassa/develop/api/payments/sbp/qr/
-    def self.get_qr(payment_id, data_type = nil, params = {})
-      params = params.merge(PaymentId: payment_id)
-      params = params.merge(DataType: data_type) if data_type
+    def self.get_qr(payment_id, params = {})
+      params = params.merge(PaymentId: payment_id, DataType: "IMAGE")
       Tinkoff::Request.new('/v2/GetQR', params).perform
     end
   end

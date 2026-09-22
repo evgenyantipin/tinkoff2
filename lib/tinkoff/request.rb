@@ -17,7 +17,7 @@ module Tinkoff
         :headers => {'Content-Type' => 'application/json'}
       )
 
-      Tinkoff::Payment.new(response.parsed_response)
+      Tinkoff::Payment.new(response.parsed_response || {})
     end
 
     private
