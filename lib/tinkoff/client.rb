@@ -52,7 +52,7 @@ module Tinkoff
     # https://www.tinkoff.ru/kassa/develop/api/payments/sbp/qr/
     def self.get_qr(payment_id, params = {})
       params = params.merge(PaymentId: payment_id)
-      Tinkoff::Request.new('/v2/GetQR', params).perform
+      Tinkoff::Request.new('/v2/GetQr', params).perform
     end
   end
 end
